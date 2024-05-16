@@ -1,0 +1,43 @@
+#include <iostream>
+
+// Function to toggle a feature on/off
+void toggleFeature(bool& featureState, const std::string& featureName) {
+    featureState = !featureState;
+    std::cout << featureName << " is now " << (featureState ? "enabled" : "disabled") << std::endl;
+}
+
+int main() {
+    // Example features
+    bool godMode = false;
+    bool flyMode = false;
+    
+    // Main loop
+    while (true) {
+        // Print menu options
+        std::cout << "=== Gorilla Tag Mod Menu ===" << std::endl;
+        std::cout << "1. Toggle God Mode" << std::endl;
+        std::cout << "2. Toggle Fly Mode" << std::endl;
+        std::cout << "3. Exit" << std::endl;
+        
+        // User input
+        int choice;
+        std::cin >> choice;
+        
+        // Process user choice
+        switch (choice) {
+            case 1:
+                toggleFeature(godMode, "God Mode");
+                break;
+            case 2:
+                toggleFeature(flyMode, "Fly Mode");
+                break;
+            case 3:
+                std::cout << "Exiting..." << std::endl;
+                return 0;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+    }
+
+    return 0;
+}
